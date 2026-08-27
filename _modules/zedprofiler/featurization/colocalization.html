@@ -46,6 +46,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html">ZEDprofiler  </a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-environment">Install environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#data-contract">Data Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#command-line-interface">Command-line interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#arguments">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#feature-types">Feature types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#two-channel-colocalization-example">Two-channel colocalization example</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#quality-gates">Quality Gates</a></li>
 </ul>
 </li>
@@ -251,9 +258,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.feature_writing_utils.remove_underscores_from_string"><code class="docutils literal notranslate"><span class="pre">remove_underscores_from_string()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.feature_writing_utils.save_features_as_parquet"><code class="docutils literal notranslate"><span class="pre">save_features_as_parquet()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.field_of_view"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.field_of_view</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.image_id"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.image_id</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.image_set_name"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.image_set_name</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.label_key_name"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.label_key_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.patient_tumor"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.patient_tumor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.plate"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.plate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.raw_image_key_name"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.raw_image_key_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.well"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.well</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader</span></code></a><ul>
@@ -265,6 +277,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.unique_compartment_objects"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.unique_compartment_objects</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.image_names"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.image_names</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.compartments"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.compartments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.from_image_dict"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.from_image_dict()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.get_anisotropy"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.get_anisotropy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.get_compartments"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.get_compartments()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.get_image"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.get_image()</span></code></a></li>
@@ -291,12 +304,78 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-zedprofiler.contracts">Contracts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.channel"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.channel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.column_name"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.column_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.compartment"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.compartment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.feature"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.feature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.model_config"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.parse_column_name"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.parse_column_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.validate_is_string"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.validate_is_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.channels"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.channels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.compartments"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.compartments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.expected_values_dict"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.expected_values_dict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.features"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.features</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.model_config"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel.features"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel.features</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel.model_config"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel.validate_is_dict"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel.validate_is_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.array"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.model_config"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.validate_array_dtype_and_shape"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.validate_array_dtype_and_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.validate_array_type"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.validate_array_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel.metadata"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel.metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel.model_config"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel.validate_is_dict"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel.validate_is_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.model_config"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.result"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.result</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.validate_is_dict"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.validate_is_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.validate_keys_and_types"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.validate_keys_and_types()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.create_image_array_schema"><code class="docutils literal notranslate"><span class="pre">create_image_array_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_column_name_schema"><code class="docutils literal notranslate"><span class="pre">validate_column_name_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_column_name_with_pydantic"><code class="docutils literal notranslate"><span class="pre">validate_column_name_with_pydantic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_image_array_shape_contracts"><code class="docutils literal notranslate"><span class="pre">validate_image_array_shape_contracts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_image_array_type_contracts"><code class="docutils literal notranslate"><span class="pre">validate_image_array_type_contracts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_image_with_pydantic"><code class="docutils literal notranslate"><span class="pre">validate_image_with_pydantic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_return_schema_contract"><code class="docutils literal notranslate"><span class="pre">validate_return_schema_contract()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_return_with_pydantic"><code class="docutils literal notranslate"><span class="pre">validate_return_with_pydantic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-zedprofiler.exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.exceptions.ContractError"><code class="docutils literal notranslate"><span class="pre">ContractError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.exceptions.ZedProfilerError"><code class="docutils literal notranslate"><span class="pre">ZedProfilerError</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">A Note on Scalability</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../scalability.html">ZEDprofiler scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarking.html">Benchmarking and Accuracy Locks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../benchmarking.html#accuracy-locks">Accuracy locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../benchmarking.html#benchmark-scorecard">Benchmark scorecard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../benchmarking.html#game-loop">Game loop</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -666,7 +745,7 @@
 
 <div class="viewcode-block" id="calculate_colocalization">
 <a class="viewcode-back" href="../../../api.html#zedprofiler.featurization.colocalization.calculate_colocalization">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">calculate_colocalization</span><span class="p">(</span>  <span class="c1"># noqa: PLR0912, PLR0915, C901</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_colocalization</span><span class="p">(</span>  <span class="c1"># noqa: PLR0912, PLR0915</span>
     <span class="n">cropped_image_1</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">cropped_image_2</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">thr</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
@@ -728,9 +807,11 @@
     <span class="c1">################################################################################################</span>
 
     <span class="c1"># Threshold as percentage of maximum intensity of objects in each channel</span>
-    <span class="c1"># Initialise before the try block so combined_thresh is always bound even</span>
-    <span class="c1"># when the except branch fires (numpy.max raises ValueError on empty arrays).</span>
+    <span class="c1"># Initialise before the try block so these are always bound even when the</span>
+    <span class="c1"># except branch fires (numpy.max raises ValueError on empty arrays).</span>
     <span class="n">combined_thresh</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">cropped_image_1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">first_image_thresh</span> <span class="o">=</span> <span class="n">cropped_image_1</span><span class="p">[</span><span class="n">combined_thresh</span><span class="p">]</span>
+    <span class="n">second_image_thresh</span> <span class="o">=</span> <span class="n">cropped_image_2</span><span class="p">[</span><span class="n">combined_thresh</span><span class="p">]</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">tff</span> <span class="o">=</span> <span class="p">(</span><span class="n">thr</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cropped_image_1</span><span class="p">)</span>
         <span class="n">tss</span> <span class="o">=</span> <span class="p">(</span><span class="n">thr</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cropped_image_2</span><span class="p">)</span>
@@ -773,16 +854,15 @@
             <span class="p">)</span>
             <span class="o">/</span> <span class="n">pdt</span>
         <span class="p">)</span>
-        <span class="n">K1</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="c1"># K1/K2 are computed but not currently exported as features.</span>
+        <span class="n">_k1</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
             <span class="n">cropped_image_1</span><span class="p">[</span><span class="n">combined_thresh</span><span class="p">]</span> <span class="o">*</span> <span class="n">cropped_image_2</span><span class="p">[</span><span class="n">combined_thresh</span><span class="p">],</span>
         <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fpsq</span><span class="p">))</span>
-        <span class="n">K2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="n">_k2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
             <span class="n">cropped_image_1</span><span class="p">[</span><span class="n">combined_thresh</span><span class="p">]</span> <span class="o">*</span> <span class="n">cropped_image_2</span><span class="p">[</span><span class="n">combined_thresh</span><span class="p">],</span>
         <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spsq</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">K1</span> <span class="o">==</span> <span class="n">K2</span><span class="p">:</span>
-            <span class="k">pass</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">overlap</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+        <span class="n">overlap</span><span class="p">,</span> <span class="n">_k1</span><span class="p">,</span> <span class="n">_k2</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
 
     <span class="c1"># first_pixels, second_pixels = flattened image arrays</span>
     <span class="c1"># combined_thresh = boolean mask of pixels above threshold in both channels</span>
@@ -940,15 +1020,28 @@
     <span class="k">if</span> <span class="n">channel1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">channel2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;channel1 and channel2 must be provided for feature naming.&quot;</span><span class="p">)</span>
     <span class="n">list_of_dfs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">object_id</span> <span class="ow">in</span> <span class="n">two_object_loader</span><span class="o">.</span><span class="n">object_ids</span><span class="p">:</span>
-        <span class="n">cropped_image1</span><span class="p">,</span> <span class="n">cropped_image2</span> <span class="o">=</span> <span class="n">prepare_two_images_for_colocalization</span><span class="p">(</span>
-            <span class="n">label_object1</span><span class="o">=</span><span class="n">two_object_loader</span><span class="o">.</span><span class="n">label_image</span><span class="p">,</span>
-            <span class="n">label_object2</span><span class="o">=</span><span class="n">two_object_loader</span><span class="o">.</span><span class="n">label_image</span><span class="p">,</span>
-            <span class="n">image_object1</span><span class="o">=</span><span class="n">two_object_loader</span><span class="o">.</span><span class="n">image1</span><span class="p">,</span>
-            <span class="n">image_object2</span><span class="o">=</span><span class="n">two_object_loader</span><span class="o">.</span><span class="n">image2</span><span class="p">,</span>
-            <span class="n">object_id1</span><span class="o">=</span><span class="n">object_id</span><span class="p">,</span>
-            <span class="n">object_id2</span><span class="o">=</span><span class="n">object_id</span><span class="p">,</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops_table</span><span class="p">(</span>
+        <span class="n">two_object_loader</span><span class="o">.</span><span class="n">label_image</span><span class="p">,</span>
+        <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;bbox&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">label_to_bbox</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">):</span> <span class="p">(</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;bbox-0&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;bbox-1&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;bbox-2&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;bbox-3&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;bbox-4&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;bbox-5&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]),</span>
         <span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">object_id</span> <span class="ow">in</span> <span class="n">two_object_loader</span><span class="o">.</span><span class="n">object_ids</span><span class="p">:</span>
+        <span class="n">bbox</span> <span class="o">=</span> <span class="n">label_to_bbox</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">object_id</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">cropped_image1</span> <span class="o">=</span> <span class="n">crop_3D_image</span><span class="p">(</span><span class="n">two_object_loader</span><span class="o">.</span><span class="n">image1</span><span class="p">,</span> <span class="n">bbox</span><span class="p">)</span>
+        <span class="n">cropped_image2</span> <span class="o">=</span> <span class="n">crop_3D_image</span><span class="p">(</span><span class="n">two_object_loader</span><span class="o">.</span><span class="n">image2</span><span class="p">,</span> <span class="n">bbox</span><span class="p">)</span>
         <span class="n">colocalization_features</span> <span class="o">=</span> <span class="n">calculate_colocalization</span><span class="p">(</span>
             <span class="n">cropped_image_1</span><span class="o">=</span><span class="n">cropped_image1</span><span class="p">,</span>
             <span class="n">cropped_image_2</span><span class="o">=</span><span class="n">cropped_image2</span><span class="p">,</span>
@@ -969,6 +1062,7 @@
             <span class="k">if</span> <span class="n">full_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span>
                 <span class="s2">&quot;Metadata_Object_ObjectID&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;Metadata_Experiment_ImageSet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Metadata_Imaging_ImageID&quot;</span><span class="p">,</span>
             <span class="p">):</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">row</span><span class="p">[</span><span class="n">full_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">meas_val</span><span class="p">)</span>
@@ -977,22 +1071,33 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">row</span><span class="p">[</span><span class="n">full_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">meas_val</span>
 
-        <span class="c1"># ensure object_id and image_set are present and first</span>
+        <span class="c1"># ensure object_id and image identifiers are present and first</span>
         <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Metadata_Object_ObjectID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">object_id</span>
         <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Metadata_Experiment_ImageSet&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">two_object_loader</span><span class="o">.</span><span class="n">image_set_loader</span><span class="o">.</span><span class="n">image_set_name</span>
         <span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Metadata_Imaging_ImageID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">two_object_loader</span><span class="o">.</span><span class="n">image_set_loader</span><span class="o">.</span><span class="n">image_id</span>
         <span class="n">list_of_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
     <span class="c1"># Convert list of row-dicts into a dict-of-lists with stable ordering</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">list_of_dfs</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;Metadata_Object_ObjectID&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;Metadata_Experiment_ImageSet&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;Metadata_Imaging_ImageID&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
 
     <span class="c1"># Collect other metric keys preserving first-seen ordering</span>
     <span class="n">other_keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">list_of_dfs</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Metadata_Object_ObjectID&quot;</span><span class="p">,</span> <span class="s2">&quot;Metadata_Experiment_ImageSet&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="s2">&quot;Metadata_Object_ObjectID&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Metadata_Experiment_ImageSet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Metadata_Imaging_ImageID&quot;</span><span class="p">,</span>
+            <span class="p">):</span>
                 <span class="k">continue</span>
             <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">other_keys</span><span class="p">:</span>
                 <span class="n">other_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
@@ -1000,6 +1105,7 @@
     <span class="n">all_keys</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s2">&quot;Metadata_Object_ObjectID&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Metadata_Experiment_ImageSet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Metadata_Imaging_ImageID&quot;</span><span class="p">,</span>
         <span class="o">*</span><span class="n">other_keys</span><span class="p">,</span>
     <span class="p">]</span>
     <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>

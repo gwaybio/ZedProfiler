@@ -46,6 +46,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html">ZEDprofiler  </a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-environment">Install environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#data-contract">Data Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#command-line-interface">Command-line interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#arguments">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#feature-types">Feature types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#two-channel-colocalization-example">Two-channel colocalization example</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#quality-gates">Quality Gates</a></li>
 </ul>
 </li>
@@ -251,9 +258,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.feature_writing_utils.remove_underscores_from_string"><code class="docutils literal notranslate"><span class="pre">remove_underscores_from_string()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.feature_writing_utils.save_features_as_parquet"><code class="docutils literal notranslate"><span class="pre">save_features_as_parquet()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.field_of_view"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.field_of_view</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.image_id"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.image_id</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.image_set_name"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.image_set_name</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.label_key_name"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.label_key_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.patient_tumor"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.patient_tumor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.plate"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.plate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.raw_image_key_name"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.raw_image_key_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetConfig.well"><code class="docutils literal notranslate"><span class="pre">ImageSetConfig.well</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader</span></code></a><ul>
@@ -265,6 +277,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.unique_compartment_objects"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.unique_compartment_objects</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.image_names"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.image_names</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.compartments"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.compartments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.from_image_dict"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.from_image_dict()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.get_anisotropy"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.get_anisotropy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.get_compartments"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.get_compartments()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.get_image"><code class="docutils literal notranslate"><span class="pre">ImageSetLoader.get_image()</span></code></a></li>
@@ -291,12 +304,78 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-zedprofiler.contracts">Contracts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.channel"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.channel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.column_name"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.column_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.compartment"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.compartment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.feature"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.feature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.model_config"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.parse_column_name"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.parse_column_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ColumnNameModel.validate_is_string"><code class="docutils literal notranslate"><span class="pre">ColumnNameModel.validate_is_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.channels"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.channels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.compartments"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.compartments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.expected_values_dict"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.expected_values_dict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.features"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.features</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ExpectedFeatureNameValues.model_config"><code class="docutils literal notranslate"><span class="pre">ExpectedFeatureNameValues.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel.features"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel.features</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel.model_config"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.FeatureDictModel.validate_is_dict"><code class="docutils literal notranslate"><span class="pre">FeatureDictModel.validate_is_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.array"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.model_config"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.validate_array_dtype_and_shape"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.validate_array_dtype_and_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ImageArrayModel.validate_array_type"><code class="docutils literal notranslate"><span class="pre">ImageArrayModel.validate_array_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel.metadata"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel.metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel.model_config"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.MetadataDictModel.validate_is_dict"><code class="docutils literal notranslate"><span class="pre">MetadataDictModel.validate_is_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.model_config"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.result"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.result</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.validate_is_dict"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.validate_is_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.ReturnSchemaModel.validate_keys_and_types"><code class="docutils literal notranslate"><span class="pre">ReturnSchemaModel.validate_keys_and_types()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.create_image_array_schema"><code class="docutils literal notranslate"><span class="pre">create_image_array_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_column_name_schema"><code class="docutils literal notranslate"><span class="pre">validate_column_name_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_column_name_with_pydantic"><code class="docutils literal notranslate"><span class="pre">validate_column_name_with_pydantic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_image_array_shape_contracts"><code class="docutils literal notranslate"><span class="pre">validate_image_array_shape_contracts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_image_array_type_contracts"><code class="docutils literal notranslate"><span class="pre">validate_image_array_type_contracts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_image_with_pydantic"><code class="docutils literal notranslate"><span class="pre">validate_image_with_pydantic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_return_schema_contract"><code class="docutils literal notranslate"><span class="pre">validate_return_schema_contract()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.contracts.validate_return_with_pydantic"><code class="docutils literal notranslate"><span class="pre">validate_return_with_pydantic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-zedprofiler.exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.exceptions.ContractError"><code class="docutils literal notranslate"><span class="pre">ContractError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#zedprofiler.exceptions.ZedProfilerError"><code class="docutils literal notranslate"><span class="pre">ZedProfilerError</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">A Note on Scalability</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../scalability.html">ZEDprofiler scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarking.html">Benchmarking and Accuracy Locks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../benchmarking.html#accuracy-locks">Accuracy locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../benchmarking.html#benchmark-scorecard">Benchmark scorecard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../benchmarking.html#game-loop">Game loop</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -338,6 +417,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">zedprofiler.contracts</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImageArrayModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zedprofiler.identifiers</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_image_id</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 
@@ -370,6 +450,15 @@
     <span class="n">image_set_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">label_key_name</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">raw_image_key_name</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Imaging-coordinate identifier fields used to build a deterministic</span>
+    <span class="c1"># ``Metadata_Imaging_ImageID``. All four must be set for ``image_id`` to be</span>
+    <span class="c1"># populated; when any is None, ``image_id`` is None and the loader falls</span>
+    <span class="c1"># back to ``image_set_name`` for the emitted metadata column (see</span>
+    <span class="c1"># ``ImageSetLoader.image_id``).</span>
+    <span class="n">patient_tumor</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">plate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">well</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">field_of_view</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># validate the arg types</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -380,11 +469,41 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;label_key_name must be a list of strings or None&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_image_key_name</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;raw_image_key_name must be a list of strings or None&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patient_tumor</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;patient_tumor must be a string or None&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plate</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;plate must be a string or None&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">well</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;well must be a string or None&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_of_view</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;field_of_view must be an int, str, or None&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_key_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">label_key_name</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_image_key_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">raw_image_key_name</span> <span class="o">=</span> <span class="p">[]</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raw_image_key_name</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">image_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deterministic ``Metadata_Imaging_ImageID`` value, or None if unset.</span>
+
+<span class="sd">        Returns ``build_image_id(...)`` when all four coordinate fields are</span>
+<span class="sd">        set, otherwise ``None`` (the loader then falls back to</span>
+<span class="sd">        ``image_set_name``).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">patient_tumor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">plate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">well</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_of_view</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="n">build_image_id</span><span class="p">(</span>
+                <span class="n">patient_tumor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">patient_tumor</span><span class="p">,</span>
+                <span class="n">plate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plate</span><span class="p">,</span>
+                <span class="n">well</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">well</span><span class="p">,</span>
+                <span class="n">field_of_view</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">field_of_view</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
 
 
 
@@ -505,10 +624,18 @@
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image_set_dict</span> <span class="o">=</span> <span class="n">_LazyImageSetDict</span><span class="p">()</span>
         <span class="n">channel_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">channel_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label_key_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">label_key_name</span> <span class="ow">or</span> <span class="p">[])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_spacing</span> <span class="o">=</span> <span class="n">anisotropy_spacing</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_spacing</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_spacing</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image_set_name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">image_set_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label_set_path</span> <span class="o">=</span> <span class="n">label_set_path</span>
+        <span class="c1"># Deterministic imaging identifier for the warehouse join key</span>
+        <span class="c1"># (``Metadata_Imaging_ImageID``). When identifier fields are not</span>
+        <span class="c1"># provided (legacy/library use), fall back to the image set name so</span>
+        <span class="c1"># the emitted metadata column always has a value.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_id</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">image_id</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">image_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">config</span><span class="o">.</span><span class="n">image_set_name</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_path_based_images</span><span class="p">(</span>
             <span class="n">channel_mapping</span><span class="o">=</span><span class="n">channel_mapping</span><span class="p">,</span>
             <span class="n">channel_tokens</span><span class="o">=</span><span class="n">channel_tokens</span><span class="p">,</span>
@@ -524,6 +651,95 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">get_compartments</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_image_names</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_unique_objects_in_compartments</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ImageSetLoader.from_image_dict">
+<a class="viewcode-back" href="../../../api.html#zedprofiler.IO.loading_classes.ImageSetLoader.from_image_dict">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_image_dict</span><span class="p">(</span>  <span class="c1"># noqa: PLR0913</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">image_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">anisotropy_spacing</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+        <span class="n">image_set_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label_key_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">patient_tumor</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">plate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">well</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">field_of_view</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageSetLoader</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build an ImageSetLoader from an in-memory channel/label dict.</span>
+
+<span class="sd">        Existing constructors only accept a directory glob (path-based) or a</span>
+<span class="sd">        single array (array-based). A well/FOV shard carries multiple channels</span>
+<span class="sd">        and multiple compartments as distinct arrays, so this classmethod</span>
+<span class="sd">        builds the ``image_set_dict`` directly from a pre-loaded</span>
+<span class="sd">        ``{key: ndarray}`` mapping. It formalizes the ``ImageSetLoader.__new__``</span>
+<span class="sd">        workaround previously used in the colocalization test helper.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        image_dict : dict[str, numpy.ndarray]</span>
+<span class="sd">            Mapping of channel names and compartment names to their arrays.</span>
+<span class="sd">            Each array is validated through ``ImageArrayModel``.</span>
+<span class="sd">        anisotropy_spacing : tuple[float, float, float]</span>
+<span class="sd">            (z_spacing, y_spacing, x_spacing).</span>
+<span class="sd">        image_set_name : str | None</span>
+<span class="sd">            Optional image set name (emitted as ``Metadata_Experiment_ImageSet``).</span>
+<span class="sd">        label_key_names : list[str] | None</span>
+<span class="sd">            Keys in ``image_dict`` that are compartment labels (not channels).</span>
+<span class="sd">            Used by ``get_compartments`` to distinguish compartments from</span>
+<span class="sd">            raw channels.</span>
+<span class="sd">        patient_tumor, plate, well, field_of_view : optional</span>
+<span class="sd">            Imaging-coordinate identifier fields. When all four are set, the</span>
+<span class="sd">            loader&#39;s ``image_id`` is the deterministic</span>
+<span class="sd">            ``Metadata_Imaging_ImageID``; otherwise it falls back to</span>
+<span class="sd">            ``image_set_name``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ImageSetLoader</span>
+<span class="sd">            A fully initialized loader (compartments, image names, and unique</span>
+<span class="sd">            compartment objects populated).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_set_dict</span> <span class="o">=</span> <span class="n">_LazyImageSetDict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Run through pydantic validation to ensure each array is valid,</span>
+            <span class="c1"># mirroring ``_load_array_based_images``.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image_set_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ImageArrayModel</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="n">array</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label_key_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">label_key_names</span> <span class="ow">or</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_spacing</span> <span class="o">=</span> <span class="n">anisotropy_spacing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_spacing</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy_spacing</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_set_name</span> <span class="o">=</span> <span class="n">image_set_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label_set_path</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">ImageSetConfig</span><span class="p">(</span>
+            <span class="n">image_set_name</span><span class="o">=</span><span class="n">image_set_name</span><span class="p">,</span>
+            <span class="n">label_key_name</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">label_key_names</span> <span class="ow">or</span> <span class="p">[]),</span>
+            <span class="n">raw_image_key_name</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">label_key_names</span> <span class="ow">or</span> <span class="p">[])</span>
+            <span class="p">],</span>
+            <span class="n">patient_tumor</span><span class="o">=</span><span class="n">patient_tumor</span><span class="p">,</span>
+            <span class="n">plate</span><span class="o">=</span><span class="n">plate</span><span class="p">,</span>
+            <span class="n">well</span><span class="o">=</span><span class="n">well</span><span class="p">,</span>
+            <span class="n">field_of_view</span><span class="o">=</span><span class="n">field_of_view</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_id</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">image_id</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">image_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">config</span><span class="o">.</span><span class="n">image_set_name</span>
+        <span class="p">)</span>
+        <span class="c1"># Set compartments and image names directly from the declared label</span>
+        <span class="c1"># keys rather than calling ``get_compartments``/``get_image_names``.</span>
+        <span class="c1"># Those methods&#39; compartment heuristic differs across repo revisions</span>
+        <span class="c1"># (it was corrected in a later bugfix commit), but this classmethod</span>
+        <span class="c1"># already knows which keys are labels, so deriving the split here keeps</span>
+        <span class="c1"># it self-contained and correct on any base.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compartments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_label_key_names</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_names</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_key_names</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_unique_objects_in_compartments</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_validate_input_sources</span><span class="p">(</span>
@@ -723,6 +939,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_compartments</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Populate compartment names from available keys.</span>
 
+<span class="sd">        A compartment is a key explicitly declared as a label key via</span>
+<span class="sd">        ``ImageSetConfig.label_key_name``, not a raw intensity channel.</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        list[str]</span>
@@ -730,11 +949,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">compartments</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">x</span>
-            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_set_dict</span>
-            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span>
-                <span class="n">channel_mapping_key</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">channel_mapping_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_set_dict</span>
-            <span class="p">)</span>
+            <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_set_dict</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_key_names</span>
         <span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compartments</span></div>
 
